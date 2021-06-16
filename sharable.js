@@ -4,10 +4,25 @@
       var CLink;
       var DecodedTime;
       var linkKey = r.slice(1);
-const firebaseConfig = {apiKey: "AIzaSyBLPnH9twfHvo-ngUTPEGZIsqIONLmEOvk",authDomain: "ytlinks-c2703.firebaseapp.com",databaseURL: "https://ytlinks-c2703-default-rtdb.firebaseio.com",projectId: "ytlinks-c2703",
-storageBucket: "ytlinks-c2703.appspot.com",messagingSenderId: "343214293780",appId: "1:343214293780:web:99f635cb644e0e33d13801"
-};firebase.initializeApp(firebaseConfig);firebase.database().ref('links/'+linkKey).on('value', function(snapshot){YtLink = snapshot.val().Videolink;
-CLink = snapshot.val().channellink;LockedLink = snapshot.val().LockedLink;DecodedTime = snapshot.val().Time;});
+
+    const firebaseConfig = {
+            apiKey: "AIzaSyBLPnH9twfHvo-ngUTPEGZIsqIONLmEOvk",
+            authDomain: "ytlinks-c2703.firebaseapp.com",
+            databaseURL: "https://ytlinks-c2703-default-rtdb.firebaseio.com",
+            projectId: "ytlinks-c2703",
+            storageBucket: "ytlinks-c2703.appspot.com",
+            messagingSenderId: "343214293780",
+            appId: "1:343214293780:web:99f635cb644e0e33d13801"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        firebase.database().ref('links/'+linkKey).on('value', function(snapshot){
+                YtLink = snapshot.val().Videolink;
+                CLink = snapshot.val().channellink;
+                LockedLink = snapshot.val().LockedLink;
+                DecodedTime = snapshot.val().Time;
+            });
         
     window.onload = function() {
       test();
