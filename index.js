@@ -42,10 +42,10 @@ function getShareLink(){
 	var htp = sharedLink.startsWith("https://");
 	if(sharedLink.length > 0){
 		if (htp) {
-			document.getElementById("show").innerHTML = "Shared Link: " + sharedLink + "?";
+			document.getElementById("show").style.display = "block";
 			lockedlink = sharedLink;
 		} else {
-			document.getElementById("show").innerHTML = "Shared Link: https://" + sharedLink + "?";
+			document.getElementById("show").style.display = "block";
 			lockedlink = "https://" + sharedLink;
 		}
 	} else {
@@ -56,7 +56,7 @@ function getShareLink(){
 function getYtChannel() {
 	channelLink = document.getElementById("channellink").value;
 	if(channelLink.startsWith("https://")){
-		document.getElementById("showChannel").innerHTML = "Channel Link: " + channelLink + "?";
+		document.getElementById("showChannel").style.display = "block";
 		ytchannel = channelLink;
 	} else {
 		alert("Invalid url!");

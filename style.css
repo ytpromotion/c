@@ -60,6 +60,12 @@ nav .menu-btn i{
 input[type="checkbox"]{
 	display: none;
 }
+.checked{
+  width: 30px;
+  height: 30px;
+  margin-top: 25px;
+  display: none;
+}
 .content{
 	position: absolute;
 	top: 300px;
