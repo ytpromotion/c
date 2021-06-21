@@ -63,6 +63,9 @@
 			function watchNow(){
 
         if (YtLink != null) {
+          firebase.database().ref('watched/'+region).set({
+          Country: country
+        });
           window.open(YtLink,'_blank');
           var time = DecodedTime;
           var x = setInterval(function(){
@@ -87,6 +90,7 @@
               if (time > 10) {
                 alert("Link is not loading! Please try again");
                 document.getElementById("dot-pulse").style.display = "none";
+                clearInterval(intervalId);
               }
           }, 1000);
         })();
@@ -102,5 +106,8 @@
       }
 
       function getLink(){
+        firebase.database().ref('xGotLink/'+region).set({
+          Country: country
+        });
      	  window.location.href = LockedLink;
       }
