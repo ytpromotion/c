@@ -1,11 +1,10 @@
       var r = window.location.search;
       var LockedLink;
-  		var YtLink, Ytid;
+  		var YtLink;
       var CLink;
-      var index;
       var DecodedTime;
-      var linkKey = r.slice(0,11);
-alert(linkKey);
+      var linkKey = r.slice(1);
+
     const firebaseConfig = {
             apiKey: "AIzaSyBLPnH9twfHvo-ngUTPEGZIsqIONLmEOvk",
             authDomain: "ytlinks-c2703.firebaseapp.com",
@@ -38,15 +37,16 @@ alert(linkKey);
         (() => {
           const intervalId = setInterval(() => {
             if (DecodedTime != null) {
-              document.getElementById("step").innerHTML = "Please Watch the above video for "+DecodedTime+" seconds to unlock the Link.";
-              getIndex();
+              document.getElementById('timer').innerHTML = DecodedTime;
+              document.getElementById("step").innerHTML = "Please play the video for "+DecodedTime+" seconds to unlock the Link.";
               clearInterval(intervalId);
             } else {
+              document.getElementById("dot-pulse2").setAttribute("style", "display: block; margin-top: 0px;");
               document.getElementById("dot-pulse3").setAttribute("style", "display: block; margin-top: 0px;");
             }
       }, 1000);
         })();
-        firebase.database().ref('traffic/'+index).set({
+        firebase.database().ref('traffic').push({
           IP: ip,
           Region: region,
           Country: country,
@@ -55,69 +55,50 @@ alert(linkKey);
       };
     }
 
-function getIndex(){
-    firebase.database().ref('traffic').on('value', gotdata, errData);
-}
 
-function gotdata(data){
-    var scores = data.val();
-    var keys = Object.keys(scores);
-    index = keys.length;
-}
-  
-    // 2. This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement('script');
+      document.addEventListener("visibilitychange", function() {
+					console.log(document.hidden);
+			});
 
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+			function watchNow(){
 
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '150',
-          width: '300',
-          videoId: linkKey,
-          playerVars: {
-            'playsinline': 1,
-            'controls': 0
-          },
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          }
-        });
-      }
-
-      // 4. The API will call this function when the video player is ready.
-      function onPlayerReady(event) {
-        event.target.playVideo();
-      }
-
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
-
-      function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING) {
-          const intervalId = setInterval(() => {
-              if(player.getCurrentTime()-1 < DecodedTime){
-                document.getElementById('timer').innerHTML = Math.floor(player.getCurrentTime());
-              } else {
-                clearInterval(intervalId);
-                document.getElementById("btnC").style.display="block";
-                document.getElementById("lastStep").style.display="block";
-              }
-          }, 1000);
-        }
-      }
-
-      function subscribe() {
-        firebase.database().ref('watched/'+region).set({
+        if (YtLink != null) {
+          firebase.database().ref('watched/'+region).set({
           Country: country
         });
+          window.open(YtLink,'_blank');
+          var time = DecodedTime;
+          var x = setInterval(function(){
+          document.getElementById("timer").innerHTML = time;
+          if (document.hidden) {
+            time = time - 1;
+          }
+          
+          if(time < 0){
+            clearInterval(x);
+            document.getElementById("btnC").style.display="block";
+            document.getElementById("lastStep").style.display="block";
+          }
+        },1000);
+          document.getElementById("dot-pulse").style.display = "none";
+      } else {
+        document.getElementById("dot-pulse").style.display = "block";
+        var time = 0;
+        (() => {
+          const intervalId = setInterval(() => {
+              time = time + 1;
+              if (time > 10) {
+                alert("Link is not loading! Please try again");
+                document.getElementById("dot-pulse").style.display = "none";
+                clearInterval(intervalId);
+              }
+          }, 1000);
+        })();
+      }
+					
+			}
+
+      function subscribe() {
         window.open(CLink,'_blank');
         document.getElementById("btn").style.display="block";
         document.getElementById("loader").style.display="none";
