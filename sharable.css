@@ -66,56 +66,6 @@ input[type="checkbox"]{
 	margin-bottom: 40px;
 	color: #007ecc;
 }
-.player {
-	width: auto;
-	padding-left: 20px;
-	padding-right: 20px;
-	height: 40px;
-	border-radius: 5px;
-	border: none;
-	font-weight: 1;
-	color: white;
-	background-color: #009eff;
-}
-.player:hover {
-	color: white;
-	font-weight: 700;
-}
-.R {
-	width: 50px; 
-	height: 50px;
-	position: absolute;
-	margin-left: -60px; 
-	margin-top: -7px; 
-	animation: slidingR 1s ease-in-out infinite;
-}
-.L {
-	width: 50px; 
-	height: 50px; 
-	position: absolute; 
-	margin-left: 10px; 
-	margin-top: -7px;
-	animation: slidingL 1s ease-in-out infinite;
-}
-@keyframes slidingR {
-  	0%,
-  	100% {
-  		transform: translate(0, 0);
-  	}
-  	50% {
-  		transform: translate(10px, 0);
-  	}
-}
-@keyframes slidingL {
-  	0%,
-  	100% {
-  		transform: translate(0, 0);
-  	}
-  	50% {
-  		transform: translate(-10px, 0);
-  	}
-}
-
 .dot-pulse {
   position: relative;
   margin-top: 40px;
