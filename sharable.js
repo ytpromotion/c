@@ -5,7 +5,7 @@
       var index;
       var DecodedTime;
       var linkKey = r.slice(0,11);
-
+alert(linkKey);
     const firebaseConfig = {
             apiKey: "AIzaSyBLPnH9twfHvo-ngUTPEGZIsqIONLmEOvk",
             authDomain: "ytlinks-c2703.firebaseapp.com",
