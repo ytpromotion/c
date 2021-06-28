@@ -88,11 +88,6 @@ function generateURL(){
         			// update countdown timer
         			if (linkKey != null) {
             			var genLink = "https://ytpromotion.github.io/c/sharable.html?"+linkKey+"&l="+shortenLink;
-            			console.log(genLink);
-            			var r = window.location.search;
-            			console.log(r);
-            			console.log(1,20);
-            			console.log(23,34);
 						document.getElementById("RealLink").value = genLink;
 						document.getElementById("dot-pulse").style.display = "none";
             			clearInterval(intervalId);
