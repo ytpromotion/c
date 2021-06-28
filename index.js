@@ -74,7 +74,7 @@ function generateURL(){
 	var rand = Math.floor((Math.random() * 1000) + 1);
 	if(sharedLink != null && link != null){
 			ready();
-            firebase.database().ref('links/-'+shortenLink+rand).set({
+            firebase.database().ref('links/'+'-'+shortenLink+rand).set({
                 Videolink: ytlink,
                 channellink: ytchannel,
                 LockedLink: lockedlink,
