@@ -71,10 +71,10 @@ function getYtChannel() {
 }
 
 function generateURL(){
-	var rand = Math.floor((Math.random() * 1000) + 1);
+	
 	if(sharedLink != null && link != null){
 			ready();
-            firebase.database().ref('links/'+rand+shortenLink).set({
+            firebase.database().ref('links/').push({
                 Videolink: ytlink,
                 channellink: ytchannel,
                 LockedLink: lockedlink,
@@ -87,7 +87,12 @@ function generateURL(){
     			const intervalId = setInterval(() => {
         			// update countdown timer
         			if (linkKey != null) {
-            			var genLink = "https://ytpromotion.github.io/c/sharable.html?"+linkKey;
+            			var genLink = "https://ytpromotion.github.io/c/sharable.html?"+linkKey+"&l="+shortenLink;
+            			console.log(genLink);
+            			var r = window.location.search;
+            			console.log(r);
+            			console.log(1,20);
+            			console.log(23,34);
 						document.getElementById("RealLink").value = genLink;
 						document.getElementById("dot-pulse").style.display = "none";
             			clearInterval(intervalId);
