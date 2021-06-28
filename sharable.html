@@ -1,76 +1,71 @@
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>YTPromotion | Tubeflix</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="sharable.css">
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <meta charset="utf-8">
+  <title>YTPromotion | Tubeflix</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="sharable.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
-	
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+  
 </head>
 <body>
-	<nav>
-			<div class="logo">YTPromotion</div>
-			<input type="checkbox" id="click">
-			<label for="click" class="menu-btn">
-				<i class="fas fa-bars"></i>
-			</label>
-			<ul>
-				<li><a href="index.html">Home</a></li>
-			</ul>
-		</nav>
+  <nav>
+      <div class="logo">YTPromotion</div>
+      <input type="checkbox" id="click">
+      <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
 
-		<div class="content">
-			<div>Grow your youtube channel<br> with free cost.</div>
-			<div2>Promote your youtube channel with YTPromotion without any cost.<br> Gain views and likes for your videos and <br>increase your subscriber count.</div2><br><br>
-			<button>Try Now For Free</button>
-		</div>
-		<div class="cover">
-			<img src="images/cover.jpg">
-		</div>
-		<div class="Maincontainer">
-			<br><h2>Welcome To YTPromotion.</h2><br>
-			<h4>Your link is LOCKED.</h4>
-			<p>Your link is being ready. Please do the below mentioned steps <br>to unlock the link.</p>
-		</div>
+    <div class="content">
+      <div>Grow your youtube channel<br> with free cost.</div>
+      <div2>Promote your youtube channel with YTPromotion without any cost.<br> Gain views and likes for your videos and <br>increase your subscriber count.</div2><br><br>
+      <button>Try Now For Free</button>
+    </div>
+    <div class="cover">
+      <img src="images/cover.jpg">
+    </div>
+    <div class="Maincontainer">
+      <br><h2>Welcome To YTPromotion.</h2><br>
+      <h4>Your link is LOCKED.</h4>
+      <p>Your link is being ready. Please do the below mentioned steps <br>to unlock the link.</p>
+    </div>
 
-		<div class="steps">
-			<h3 id="step">
-				<center><div class="col-3">
-        		<div class="snippet" data-title=".dot-pulse">
-          			<div class="stage">
-            			<div id="dot-pulse3" class="dot-pulse"></div>
-          			</div>
-        		</div></center>
-			</h3>
-		</div>
+    <center><div id="player" style="margin-top: 30px;"></div></center>
 
-	<center><img class="R" src="images/arrowR.png"><button class="player" onclick="watchNow()">Watch Now</button><img class="L" src="images/arrowL.png"></center>
+    <div class="steps">
+      <h3 id="step">
+        <center><div class="col-3">
+            <div class="snippet" data-title=".dot-pulse">
+                <div class="stage">
+                  <div id="dot-pulse3" class="dot-pulse"></div>
+                </div>
+            </div></center>
+      </h3>
+    </div>
 
-	<center>
-			<div class="col-3">
-        		<div class="snippet" data-title=".dot-pulse">
-          			<div class="stage">
-            			<div id="dot-pulse" class="dot-pulse"></div>
-          			</div>
-        		</div>
-     		</div>
+  <center>
+      <div class="col-3">
+            <div class="snippet" data-title=".dot-pulse">
+                <div class="stage">
+                  <div id="dot-pulse" class="dot-pulse"></div>
+                </div>
+            </div>
+        </div>
      </center>
 
-	<center><div class="container">
-       <h1 class="timer" id="timer">
-       		<div class="col-3">
-        		<div class="snippet" data-title=".dot-pulse">
-          			<div class="stage">
-            			<div id="dot-pulse2" class="dot-pulse"></div>
-          			</div>
-        		</div>
+  <center><div class="container">
+       <h1 class="timer" id="timer">0
+          
        </h1>
     </div></center>
 
-	<p class="lastStep" id="lastStep">Your Link is almost ready. One Last Step, Please Subscribe the channel.</p>
+  <p class="lastStep" id="lastStep">Your Link is almost ready. One Last Step, Please Subscribe the channel.</p>
     <center><button id="btnC" onclick="subscribe()">Please Subscribe</button></center>
 
     <p class="lastStep" id="done">Your Link is Ready.</p>

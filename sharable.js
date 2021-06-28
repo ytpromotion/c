@@ -3,8 +3,9 @@
       var YtLink;
       var CLink;
       var DecodedTime;
-      var linkKey = r.slice(1);
-      var vidLink = linkKey.slice(2,13);
+      //?-Md1yj6lfQrMJRrYm802&l=rY8M2bTrg0E
+      var linkKey = r.slice(1,21);
+      var vidLink = r.slice(24,35);
 
     const firebaseConfig = {
             apiKey: "AIzaSyBLPnH9twfHvo-ngUTPEGZIsqIONLmEOvk",
