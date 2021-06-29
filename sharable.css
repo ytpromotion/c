@@ -66,6 +66,56 @@ input[type="checkbox"]{
 	margin-bottom: 40px;
 	color: #007ecc;
 }
+.player {
+  width: 120px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background-color: #009eff;
+  color: white;
+  font-size: 15px;
+}
+.player:hover {
+  cursor: pointer;
+  color: #009eff;
+  background-color: white;
+  border: solid;
+  border-color: #009eff;
+}
+.R {
+  margin-bottom: -13px;
+  width: 45px;
+  height: 40px;
+  margin-right: 10px;
+  animation: slide1 1s ease-in-out infinite;
+}
+@keyframes slide1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
+}
+.L {
+  margin-bottom: -13px;
+  width: 45px;
+  height: 40px;
+  margin-left: 10px;
+  animation: slide2 1s ease-in-out infinite;
+}
+@keyframes slide2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-10px, 0);
+  }
+}
 .dot-pulse {
   position: relative;
   margin-top: 40px;
