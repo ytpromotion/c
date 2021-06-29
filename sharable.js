@@ -3,7 +3,7 @@
   		var YtLink;
       var CLink;
       var DecodedTime;
-      var linkKey = '-MdHx_6YLnJvl6ZXIKk6';//r.slice(1);
+      var linkKey = r.slice(1);
 
     const firebaseConfig = {
             apiKey: "AIzaSyBLPnH9twfHvo-ngUTPEGZIsqIONLmEOvk",
