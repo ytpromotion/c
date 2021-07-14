@@ -5,17 +5,28 @@
       var DecodedTime;
       var linkKey = r.slice(1);
 
-    const firebaseConfig = {
-            apiKey: "AIzaSyBLPnH9twfHvo-ngUTPEGZIsqIONLmEOvk",
-            authDomain: "ytlinks-c2703.firebaseapp.com",
-            databaseURL: "https://ytlinks-c2703-default-rtdb.firebaseio.com",
-            projectId: "ytlinks-c2703",
-            storageBucket: "ytlinks-c2703.appspot.com",
-            messagingSenderId: "343214293780",
-            appId: "1:343214293780:web:99f635cb644e0e33d13801"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+    // const firebaseConfig = {
+    //         apiKey: "AIzaSyBLPnH9twfHvo-ngUTPEGZIsqIONLmEOvk",
+    //         authDomain: "ytlinks-c2703.firebaseapp.com",
+    //         databaseURL: "https://ytlinks-c2703-default-rtdb.firebaseio.com",
+    //         projectId: "ytlinks-c2703",
+    //         storageBucket: "ytlinks-c2703.appspot.com",
+    //         messagingSenderId: "343214293780",
+    //         appId: "1:343214293780:web:99f635cb644e0e33d13801"
+    //     };
+    //     // Initialize Firebase
+    //     firebase.initializeApp(firebaseConfig);
+
+    var firebaseConfig = {
+    apiKey: "AIzaSyDHX7RnqpxxkZAf3y25iuuoQB4I52Y-hoE",
+    authDomain: "ytlinks-2.firebaseapp.com",
+    projectId: "ytlinks-2",
+    storageBucket: "ytlinks-2.appspot.com",
+    messagingSenderId: "795792677639",
+    appId: "1:795792677639:web:2ef1e99122fe697f2943a2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
         firebase.database().ref('links/'+linkKey).on('value', function(snapshot){
                 YtLink = snapshot.val().Videolink;
@@ -46,12 +57,6 @@
             }
       }, 1000);
         })();
-        firebase.database().ref('traffic').push({
-          IP: ip,
-          Region: region,
-          Country: country,
-          Org: org
-        });
       };
     }
 
@@ -63,9 +68,6 @@
 			function watchNow(){
 
         if (YtLink != null) {
-          firebase.database().ref('watched').push({
-          Country: country
-        });
           window.open(YtLink,'_blank');
           var time = DecodedTime;
           var x = setInterval(function(){
@@ -107,7 +109,10 @@
 
       function getLink(){
         firebase.database().ref('xGotLink').push({
-          Country: country
+          IP: ip,
+          Region: region,
+          Country: country,
+          Org: org
         });
      	  window.location.href = LockedLink;
       }

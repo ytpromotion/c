@@ -246,11 +246,11 @@ select{
 }
 
 .video .copy{
-	width: 25%;
+	width: 70%;
 	height: 35px;
 	border: none;
 	margin-top: 30px;
-	border-radius: 5px 0px 0px 5px;
+	border-radius: 5px 5px 5px 5px;
 }
 .video .copybtn{
 	width: auto;
@@ -261,7 +261,8 @@ select{
 	font-weight: 700;
 	color: white;
 	margin-bottom: 20px;
-	border-radius:0px 5px 5px 0px;
+  margin-top: 15px;
+	border-radius:5px 5px 5px 5px;
 }
 .video iframe{
 	margin: 10px auto;
